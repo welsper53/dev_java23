@@ -1,11 +1,12 @@
-package util.oracle;
+package util.dbTable;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class FriendsList {
+public class ChatUserList {
+    int chat_no;
     String user_id;
-    String f_id;
+    int flag;
 }

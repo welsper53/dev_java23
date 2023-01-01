@@ -1,4 +1,4 @@
-package util.oracle;
+package util.dbTable;
 
 import lombok.Builder;
 import lombok.Data;
