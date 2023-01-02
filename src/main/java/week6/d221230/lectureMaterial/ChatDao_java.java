@@ -6,7 +6,7 @@ import com.jdbc.DBConnectionMgr2;
 public class ChatDao {
 	Connection con = null;
 	CallableStatement cstmt = null;
-	DBConnectionMgr2 dbMgr = new DBConnectionMgr2();	
+	DBConnectionMgr2 dbMgr = new DBConnectionMgr2();
 	ResultSet rs = null;
 	public ChatDao() {
 	}
@@ -24,7 +24,7 @@ public class ChatDao {
 		    mem_nick = cstmt.getString(3);
 		} catch (Exception e) {
 			System.out.println(e.getMessage()+", "+e.toString());//힌트를 얻을 수 있다.
-		}		
+		}
 		return mem_nick;
 	}
 }

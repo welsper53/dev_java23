@@ -41,10 +41,11 @@ public class DeptList {
                 // fetch : 호출한 데이터를 메모리에 올리는 것
                 dVO = DeptVO.builder().deptno(rs.getInt("deptno")).dname(rs.getString("dname")).loc(rs.getString("loc")).build();
 
-                // TODO: lombok이 아닌 원래 방식으로 해결해야한다(null값으로 나오는 증상)
-                // dVO.setDeptno(rs.getInt("deptno"));
-                // dVO.setDname(rs.getString("dname"));
-                // dVO.setLoc(rs.getString("loc"));
+//                // TODO: lombok이 아닌 원래 방식
+//                dVO = new DeptVO();
+//                 dVO.setDeptno(rs.getInt("deptno"));
+//                 dVO.setDname(rs.getString("dname"));
+//                 dVO.setLoc(rs.getString("loc"));
 
                 deptList.add(dVO);
             }
