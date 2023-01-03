@@ -11,9 +11,18 @@ import lombok.Data;
 // 생성자를 자동으로 생성
 public class DeptVO {
     int deptno;
-
     String dname;
     String loc;
+
+    public DeptVO() {
+        // 0, null, null;
+    }
+    public DeptVO(int deptno, String dname, String loc) {
+        this.deptno = deptno;
+        this.dname = dname;
+        this.loc = loc;
+    }
+
     public int getDeptno() {
         return deptno;
     }
