@@ -82,7 +82,8 @@ public class ChatListView extends JFrame implements ActionListener {
         // 창 위치 지정
         this.setLocation(500, 100);
         // 창 크기 설정
-        this.setSize(350, 600);
+//        this.setSize(350, 600);
+        this.setSize(400, 600);
         this.setTitle("채팅 목록");
         this.setVisible(true);
 
