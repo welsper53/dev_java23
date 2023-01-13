@@ -22,11 +22,41 @@ public class DBConnectionMgr {
     public static final String _URL
             = "jdbc:oracle:thin:@192.168.10.72:1521:orcl11";
 
-    public static String _USER = "scott";
-    public static String _PW = "tiger";
+    public String _USER = "scott";
+    public String _PW = "tiger";
+
+
+    public DBConnectionMgr(){}
+    //파라미터가 있는 생성자가 하나라도 있으면 디폴트 생성자 제공 안된다
+    public DBConnectionMgr(String _USER, String _PW){
+        // static으로 선언된 변수는 this나 super 같은 예약어 사용 불가능하다
+        // [this]에 대한 어려움으로 리액트 '훅'새로운 방식을 제안했다(16.9번 18.2)
+        // 리액트 훅 -> 함수형 프로그래밍, 자바:람다식, 익명클래스,내부클래스 컨벤션동일)
+        // 웹브라우저에서는 this가 왜 문제인가? -> 캡처링, 버블링 효과
+        this._USER = _USER;
+        this._PW = _PW;
+    }
+
 
     public Connection getConnection() {
         Connection con = null;
+
+        // 네트워크 예외처리
+        try {
+            Class.forName(_DRIVER);
+            con = DriverManager.getConnection(_URL, _USER, _PW);
+        } catch (ClassNotFoundException e) {
+            System.out.println("드라이버 클래스를 찾을 수 없습니다.");
+        } catch (Exception e) { // 멀티 블럭 작성 시 더 넓은 클래스가 뒤에 와야함
+            System.out.println("오라클 서버와 커넥션 실패!!");
+        } // end of try-catch
+
+        return con;
+    } // end of getConnection()
+    public Connection getConnection(String _USER, String _PW) {
+        Connection con = null;
+        this._USER = _USER;
+        this._PW = _PW;
 
         // 네트워크 예외처리
         try {
